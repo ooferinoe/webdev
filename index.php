@@ -32,14 +32,8 @@
         </form>
     
         <?php
-            $DBHost = "localhost"; // hostname
-            $DBUser = "root"; // username
-            $DBPass = ""; //password
-            $DBName = "test_db"; //database
-            $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName); //connection string to connect Database.
-            if(!$conn){
-                die("Connection failed: " . mysqli_error()); //check connection 
-            }
+            $mysqli = require __DIR__ . "/database.php";
+            
             if(isset($_POST['insertSub'])!=''){
                 $errZip = "";
                 if(preg_match("/^[0-9]{4}$/", $_POST['empID'])){

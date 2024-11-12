@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <body>
         <div class="container">
             <div class="login-box">
-                <h1>Sign In</h1>
+                <h1>Welcome to osu!</h1>
 
                 <?php if ($is_invalid): ?>
                     <em>Invalid sign in.</em>
