@@ -1,7 +1,15 @@
 <?php
 
 if (empty($_POST["name"])) {
-    die("Name is required");
+    die("Username is required");
+}
+
+if (preg_match("/[0-9]/", $_POST["name"])){
+    die("Username should only contain letters.");
+}
+
+if (preg_match("/ /", $_POST["name"])){
+    die("Username should not contain spaces.");
 }
 
 if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {

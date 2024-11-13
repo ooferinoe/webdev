@@ -4,7 +4,6 @@ session_start();
 $is_invalid = false;
 $lockout_duration = 5;
 $disable_inputs = false;
-//$lockout_message = '';
 
 if(!isset($_SESSION['login_attempts'])){
     $_SESSION['login_attempts'] = 0;
@@ -13,10 +12,6 @@ if(!isset($_SESSION['login_attempts'])){
 if(!isset($_SESSION['last_failed_attempt'])){
     $_SESSION['last_failed_attempt'] = 0;
 }
-
-
-
-
 
 if ($_SESSION['login_attempts'] >= 3){
     $time_remaining = time() - $_SESSION['last_failed_attempt'];
@@ -86,7 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <?php endif; ?>
                     
                 <?php if ($disable_inputs): ?>
-                    <p class="err_message"><?= $lockout_message ?? "Too many failed login attempts. Please try again in " . ceil($lockout_time) . " seconds"?></p>
+                    <!--<p class="err_message"><?= $lockout_message ?? "Too many failed login attempts. Please try again in " . ceil($lockout_time) . " seconds"?></p>-->
+                    <p class="err_message"><?= $lockout_message ?? "Too many failed login attempts. Please try again in 5 seconds"?></p>
                 <?php endif; ?>
                     
                 <form method="post">
