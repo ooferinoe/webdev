@@ -33,6 +33,9 @@
                         <input class="button" type="submit" name="viewSub" value="VIEW" >
                         <!--<input class="button" type="submit" name="searchSub" value="SEARCH" >-->
                     </center>
+                    <center>
+                        <input class="logout" type="submit" name="logout" value="LOGOUT" >
+                    </center>
                 </form>
             </div>
             
@@ -116,6 +119,9 @@
                 }
             }
 
+            if(isset($_POST['logout'])){
+                header("Location: login.php");
+            }
 //            if(isset($_POST['searchSub'])!=''){
 //                if($_POST['empName']==""){
 //                    echo "Fill Employee Name field you want to search.";
